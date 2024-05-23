@@ -1,0 +1,90 @@
+Import Statements:
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+
+These import statements, they are there for bringing packages, libraries that are used to do stuff like make GUI's, generating random numbers, etc, etc
+
+they basically work in a way that it adds functionality, for example it lets you use `java.util.Random` to generate random numbers more easily than it is using regular plain java.
+
+
+Now before I tell you what the import statements I put in the code do, let me explain a few things:
+
+classes: Classes are like a blueprint, or more like a placeholder in some situations that's used for creating objects
+for example:
+public class Main {
+  int x = 5;
+}
+
+that class main contains the code `int x = 5;`
+so if you want to print that code, instead of writing `System.out.println("x = 5");` you can write `System.out.println(Main);`
+
+events:  An event in java is where something is created or changed after you click a button on the GUI, for example like in my code, if you press *roll the dice* it creates a number.
+
+instance: An instance is when a class is shown on a GUI
+
+packages: A package in Java is used to group related classes. Think of it as a folder in a file directory. people use packages to write a better maintainable code. Packages are divided into two categories:
+Built-in Packages (packages from the Java API)
+User-defined Packages (create your own packages)
+all of the packages shown here are Built-in Packages
+
+
+the import statements that are in my code do the following:
+
+1. javax.swing.*: This package contains classes and interfaces for building graphical user interface (GUI) in java.
+2. java.awt.*: This package helps manage the gui's
+3. java.awt.event.*: This package handles events
+4. java.util.Random: This generates random numbers
+
+
+Class and ActionListener:
+
+As explained earlier, A class is a blueprint that is used to hold information, which makes it easier to use that later on in the code.
+
+public class DiceGameGUI extends JFrame implements ActionListener {
+
+Here, we made a class called DiceGameGUI, what implementing ActionListener does is lets the code react when a button is clicked, for example in my game, it says Roll Dice, When you press that button, the code reacts and gives an output of a random generated number
+
+
+Instance Variables:
+
+
+private JButton rollButton;
+private JButton guessThreeOrBelowButton;
+private JButton guessFourOrAboveButton;
+private JLabel resultLabel;
+private JLabel guessLabel;
+private JLabel scoreLabel;
+private int userScore = 0;
+private int computerScore = 0;
+private Random random;
+
+basically these Instance Variables literally just create the buttons, what happens when you click the buttons, generates random numbers, and keeps the score's between you and the computer.
+
+
+1. JButton: Represents a clickable button.
+2. JLabel: Shows a lable, basically text you can't edit.
+3. int: int basically means integer, so its the number, like the one used to keep scores, etc.
+4. Random: This is used to generate random numbers.
+
+
+Constructor:
+
+public DiceGameGUI() {
+    // Constructor code
+}
+
+This is a constructor method. It's called when an instance of DiceGameGUI is created. The constructor initializes the GUI components, sets up the layout, and initializes other necessary variables.
+
+GUI Setup:
+
+setTitle("Dice Game");
+setSize(1920, 1080);
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+setResizable(true);
+
+These lines set the title of the window, its size, and the usual default close operation (exit the application when the window is closed).

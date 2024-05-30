@@ -58,15 +58,17 @@ public class DiceGameGUI extends JFrame implements ActionListener {
             resultLabel.setText("You rolled: " + diceRoll);
             checkGuess(diceRoll);
         } else if (e.getSource() == guessThreeOrBelowButton) {
-            guessLabel.setText("You guessed: 3 or Below");
+            guessLabel.setText("3 or Below");
         } else if (e.getSource() == guessFourOrAboveButton) {
-            guessLabel.setText("You guessed: 4 or Above");
+            guessLabel.setText("4 or Above");
         }
     }
 
     private void checkGuess(int diceRoll) {
-        int guessedNumber = Integer.parseInt(guessLabel.getText().replaceAll("\\D+", ""));
-        if (diceRoll == guessedNumber) {
+        String guess = guessLabel.getText();
+        boolean correctGuess = (guess.equals("3 or Below") && diceRoll <= 3) || (guess.equals("4 or Above") && diceRoll >= 4);
+
+        if (correctGuess) {
             resultLabel.setText("Congratulations! You guessed right! The number rolled was: " + diceRoll + ". You win!");
             userScore++;
         } else {
@@ -78,12 +80,5 @@ public class DiceGameGUI extends JFrame implements ActionListener {
 
     private void updateScoreboard() {
         scoreLabel.setText("Computer: " + computerScore + ", User: " + userScore);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            DiceGameGUI game = new DiceGameGUI();
-            game.setVisible(true);
-        });
     }
 }

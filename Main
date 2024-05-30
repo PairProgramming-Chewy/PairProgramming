@@ -1,1 +1,8 @@
-
+public class MainMethod {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            DiceGameGUI game = new DiceGameGUI();
+            game.setVisible(true);
+        });
+    }
+}
